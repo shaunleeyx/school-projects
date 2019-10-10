@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/shaunlee/CPSC-3500-P2_1/schedsim.cpp
+iostream
+-
+fstream
+-
+string
+-
+cassert
+-
+chrono
+-
+
