@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{3EE7B567-4A0F-4ACB-8BDC-309461E1FCC2}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="P2/P2.cs">
+    <Files>
+      <File FileName="P2/P2.cs" Line="17" Column="13" />
+      <File FileName="P2/multiQ.cs" Line="160" Column="1" />
+      <File FileName="P2/range.cs" Line="4" Column="4" />
+      <File FileName="P2/Factor.cs" Line="25" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.P2 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

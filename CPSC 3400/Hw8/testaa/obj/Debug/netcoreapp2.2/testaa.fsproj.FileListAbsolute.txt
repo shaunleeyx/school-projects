@@ -1,0 +1,8 @@
+/Users/shaunlee/Projects/testaa/testaa/bin/Debug/netcoreapp2.2/testaa.deps.json
+/Users/shaunlee/Projects/testaa/testaa/bin/Debug/netcoreapp2.2/testaa.runtimeconfig.json
+/Users/shaunlee/Projects/testaa/testaa/bin/Debug/netcoreapp2.2/testaa.runtimeconfig.dev.json
+/Users/shaunlee/Projects/testaa/testaa/bin/Debug/netcoreapp2.2/testaa.dll
+/Users/shaunlee/Projects/testaa/testaa/bin/Debug/netcoreapp2.2/testaa.pdb
+/Users/shaunlee/Projects/testaa/testaa/obj/Debug/netcoreapp2.2/testaa.fsprojAssemblyReference.cache
+/Users/shaunlee/Projects/testaa/testaa/obj/Debug/netcoreapp2.2/testaa.dll
+/Users/shaunlee/Projects/testaa/testaa/obj/Debug/netcoreapp2.2/testaa.pdb

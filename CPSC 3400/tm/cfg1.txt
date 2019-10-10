@@ -1,0 +1,15 @@
+T={x,y,z}
+N={A,B,C,D,E,F}
+Regex = ^(xy)+(y|z)x*$
+
+split regex into 3 parts = (xy)+, y|z , x*
+
+Regex = ^(xy)+(y|z)x*$
+
+S -> A
+A -> xB
+B -> yC
+C -> A|yD|zE
+D -> F
+E -> F
+F -> ' '|xF

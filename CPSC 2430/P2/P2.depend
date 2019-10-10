@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1514144174 source:c:\users\kneegrew\desktop\code\p2\p2.cpp
+	<iostream>
+
+1539574099 source:c:\users\kneegrew\desktop\code\p2\stlq.cpp
+	"stlQ.h"
+
+1539574099 c:\users\kneegrew\desktop\code\p2\stlq.h
+

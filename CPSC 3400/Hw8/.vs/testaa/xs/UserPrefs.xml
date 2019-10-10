@@ -1,0 +1,10 @@
+﻿<Properties StartupConfiguration="{32EB281A-2E07-4D95-9417-B72F20C7EC78}|Default">
+  <MonoDevelop.Ide.ItemProperties.testaa PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

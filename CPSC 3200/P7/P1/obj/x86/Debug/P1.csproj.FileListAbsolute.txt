@@ -1,0 +1,5 @@
+/Users/shaunlee/Projects/P1/P1/bin/Debug/P1.exe
+/Users/shaunlee/Projects/P1/P1/bin/Debug/P1.pdb
+/Users/shaunlee/Projects/P1/P1/obj/x86/Debug/P1.csproj.CoreCompileInputs.cache
+/Users/shaunlee/Projects/P1/P1/obj/x86/Debug/P1.exe
+/Users/shaunlee/Projects/P1/P1/obj/x86/Debug/P1.pdb

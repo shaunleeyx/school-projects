@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/shaunlee/CLionProjects/P4/flushQ.cpp
+flushQ.h
+/Users/shaunlee/CLionProjects/P4/flushQ.h
+iostream
+-
+
+/Users/shaunlee/CLionProjects/P4/flushQ.h
+

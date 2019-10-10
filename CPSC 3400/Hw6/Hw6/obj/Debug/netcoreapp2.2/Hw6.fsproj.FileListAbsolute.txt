@@ -1,0 +1,8 @@
+/Users/shaunlee/Projects/Hw6/Hw6/bin/Debug/netcoreapp2.2/Hw6.deps.json
+/Users/shaunlee/Projects/Hw6/Hw6/bin/Debug/netcoreapp2.2/Hw6.runtimeconfig.json
+/Users/shaunlee/Projects/Hw6/Hw6/bin/Debug/netcoreapp2.2/Hw6.runtimeconfig.dev.json
+/Users/shaunlee/Projects/Hw6/Hw6/bin/Debug/netcoreapp2.2/Hw6.dll
+/Users/shaunlee/Projects/Hw6/Hw6/bin/Debug/netcoreapp2.2/Hw6.pdb
+/Users/shaunlee/Projects/Hw6/Hw6/obj/Debug/netcoreapp2.2/Hw6.fsprojAssemblyReference.cache
+/Users/shaunlee/Projects/Hw6/Hw6/obj/Debug/netcoreapp2.2/Hw6.dll
+/Users/shaunlee/Projects/Hw6/Hw6/obj/Debug/netcoreapp2.2/Hw6.pdb
