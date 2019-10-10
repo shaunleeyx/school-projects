@@ -1,7 +1,7 @@
 1234 Al Jones 3 CPSC 1420 5 B+ CPSC 1430 5 F Math 2340 4 C
 8734 Heather Li 2 Phil 2010 3 A Phil 2020 3 B+
-9187 Erin Lon 4 Phys 1020 5 B- Phys 1030 1 A Music 6789 2 B- Music 9000 6 C
-4813 Ben Ritz 1 CPSC 1420 5 D
+9187 Erin Lon 4 Phys 1020 5 B- Phys 1030 1 A Music 6789 2 B- Music 9000 6 C-
+4813 Ben Ritz 1 CPSC 1420 5 D-
 8743 Jane Doe 3 Math 2320 3 B+ Math 2340 4 C- CPSC 1420 5 C
 7623 Ed Larson 2 Biol 1001 5 C Biol 1002 5 C+
 4293 Jack Doe 2 Math 2320 3 A- Math 2340 4 F
