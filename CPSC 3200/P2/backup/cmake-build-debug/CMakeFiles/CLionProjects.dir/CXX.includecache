@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/shaunlee/CLionProjects/IntDiv.h
+
+/Users/shaunlee/CLionProjects/rangeDiv.cpp
+rangeDiv.h
+/Users/shaunlee/CLionProjects/rangeDiv.h
+
+/Users/shaunlee/CLionProjects/rangeDiv.h
+IntDiv.h
+/Users/shaunlee/CLionProjects/IntDiv.h
+
