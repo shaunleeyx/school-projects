@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/shaunlee/CLionProjects/P2/P2.cpp" "/Users/shaunlee/CLionProjects/P2/cmake-build-debug/CMakeFiles/CLionProjects.dir/P2.cpp.o"
-  "/Users/shaunlee/CLionProjects/P2/intDiv.cpp" "/Users/shaunlee/CLionProjects/P2/cmake-build-debug/CMakeFiles/CLionProjects.dir/intDiv.cpp.o"
-  "/Users/shaunlee/CLionProjects/P2/rangeDiv.cpp" "/Users/shaunlee/CLionProjects/P2/cmake-build-debug/CMakeFiles/CLionProjects.dir/rangeDiv.cpp.o"
+  "C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/P2.cpp" "C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/cmake-build-debug/CMakeFiles/CLionProjects.dir/P2.cpp.obj"
+  "C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/intDiv.cpp" "C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/cmake-build-debug/CMakeFiles/CLionProjects.dir/intDiv.cpp.obj"
+  "C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/rangeDiv.cpp" "C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/cmake-build-debug/CMakeFiles/CLionProjects.dir/rangeDiv.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

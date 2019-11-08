@@ -4,7 +4,7 @@
  *Version:v1.2
  *Platform:Clion C++11
  **/
-//Class Overview: Driver Tests out move semantics,unique pointers, shared pointers, and rangeDiv functionality
+//Class Overview: Driver Tests lsout move semantics,unique pointers, shared pointers, and rangeDiv functionality
 #include <queue>
 #include <iostream>
 #include <ctime>

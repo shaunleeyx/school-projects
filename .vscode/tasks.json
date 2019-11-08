@@ -1,12 +1,15 @@
 {
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build hello world",
+            "label": "echo",
             "type": "shell",
-            "command": "g++",
-            "args": [
-                "-g", "main.cpp"
+            "command": "g++"
+            "args":  [
+                "*.h","*.cpp","-o","test","-std=c++11"
+                //g++ *.h *.cpp -o test -std=c++11
             ],
             "group": {
                 "kind": "build",

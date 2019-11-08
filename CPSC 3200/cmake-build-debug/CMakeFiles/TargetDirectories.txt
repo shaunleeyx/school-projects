@@ -1,0 +1,3 @@
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/cmake-build-debug/CMakeFiles/CPSC_3200.dir
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,62 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/P2.cpp
+queue
+-
+iostream
+-
+ctime
+-
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/intDiv.h
+rangeDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/rangeDiv.h
+memory
+-
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/IntDiv.cpp
+IntDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/IntDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/IntDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/P2.cpp
+iostream
+-
+IntDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/IntDiv.h
+rangeDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/rangeDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/rangeDiv.cpp
+rangeDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/rangeDiv.h
+IntDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/IntDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/rangeDiv.h
+IntDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/backup/IntDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/intDiv.cpp
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/intDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/intDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/rangeDiv.cpp
+rangeDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/rangeDiv.h
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/intDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/rangeDiv.h
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P2/intDiv.h
+
