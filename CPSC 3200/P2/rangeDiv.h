@@ -3,17 +3,15 @@
  *Author:Shaun Lee
  *Date:11/03/2019
  *Version:v1.2
- *Platform:Clion C++11
+ *Platform:VSCode
  *Class Overview: this class inputs a number into a bunch of intDiv objects with distinct prime numbers and then counts how many have remainders, how many doesn't, and how many times you inputted a number
- *
- *Class Invariant:Client is given the function switchstate to have on and off state of the functionality of test()
- *                test() doesn't return anything you get your results from the get statements
- *                divisibleCount will increase depending on how many numbers had no remainder everytime you call test()
- *                remainderCount will increase based on how many numbers have remainders everytime you call test()
- *
  *
  *Interface Invariant:primecount starts at 2
  *                    range encapsulates the number of arrays
+ *                    Prime number generator uses a seperate function to return a incrementing prime number example is 3,5,7,11
+ *                    Prime number generator uses the isPrime to check if the number is primew
+ *                    if input for constructor is negative or 0 then it is 1
+ *                    if input for test() is negative or 0 then its 1
  */
 #include  "intDiv.h"
 #ifndef CLIONPROJECTS_RANGEDIV_H

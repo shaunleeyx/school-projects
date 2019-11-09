@@ -2,15 +2,9 @@
 #define INTDIV_H
 
 /*Author Shaun Lee
- 11/03/2019
- Version 1.2
- Platform:Clion
- *Class Overview: This class gets the remainder of two numbers with some rules explained in the invariances
- *Class Invariant:active is true and perm is false when intialized by constructor.
- *                active changes when test returns the same number twice.
- *                perm changes to false when reset() is invoked when active is true
-                  reset() resets the program to its default state even if its permanently deactivated
-                  revive() resets the program to its default state if its inactive and is permanently deactivated when used while its active
+ *11/03/2019
+ *Version 1.2
+ *Platform:VSCode
  *Interface Invariant:div number is positive.
  *                    negative div and 0 numbers default to 1 so no divide by 0.
  *                    When active is false it disables the functionality of test().
@@ -21,9 +15,10 @@
  {
 private:
     unsigned int div;
-    bool active = false;
-    bool perminactive = false;
-    int lastnum = 0;
+    bool active;
+    bool perminactive;
+    int lastnum;
+    int testcount;
 
     //PRECONDITION:input any number
     //POSTCONDITION: it sets div to num and intializes all other fields to a value or a state
@@ -46,11 +41,5 @@ public:
 
 
 
-/**Implementation invariant: renamed reset() to revive()
- *                           removed getPerm()
- *                           change the argument of the constructor to a uint
- *                           renamed field perm to perminactive
- *                           made a if statement in the revive function that if perminactive is active then it just returns
-**/
 
 #endif

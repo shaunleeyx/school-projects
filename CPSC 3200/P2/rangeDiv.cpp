@@ -2,8 +2,25 @@
 *Author:Shaun Lee
 *Date:11/03/2019
 *Version:v1.2
-*Platform:Clion C++11
-*/
+*Platform:VSCode
+*Implementation invariant: Prime number generator uses a seperate function to return a incrementing prime number example is 3,5,7,11
+*                          Prime number generator uses the isPrime to check if the number is primew
+*                          if input for constructor is negative or 0 then it is 1
+*                          if input for test() is negative or 0 then its 1
+*                          if intdiv objects are inactive then test doesn't do anything
+*                          testCount is number of times test has been invoked
+*                          divisibleCount counts how many numbers are divisble which has no remainder
+*                          remaindercount counts how many numbers have remainders
+*                          primecount starts at 2 since 0,1 and 2 cannot be counted as prime numbers
+* 
+*Class Invariant:  Client is given the function switchstate to have on and off state of the functionality of test()
+*                  test() doesn't return anything you get your results from the get statements
+*                  divisibleCount will increase depending on how many numbers had no remainder everytime you call test()
+*                  remainderCount will increase based on how many numbers have remainders everytime you call test()
+*
+*
+**/
+
 
 #include "rangeDiv.h"
 #include "intDiv.h"
@@ -146,8 +163,4 @@ rangeDiv &rangeDiv::operator=(rangeDiv &&obj) {
 
 }
 
-/**Implementation invariant:Prime number generator uses a seperate function to return a incrementing prime number example is 3,5,7,11
- *                          Prime number generator uses the isPrime to check if the number is primew
- *                          if input for constructor is negative or 0 then it is 1
- *                          if input for test() is negative or 0 then its 1
-**/
+
