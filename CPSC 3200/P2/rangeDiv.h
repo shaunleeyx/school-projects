@@ -4,9 +4,9 @@
  *Date:11/03/2019
  *Version:v1.2
  *Platform:VSCode
- *Class Overview: this class inputs a number into a bunch of intDiv objects with distinct prime numbers and then counts how many have remainders, how many doesn't, and how many times you inputted a number
  *
- *Interface Invariant:primecount starts at 2
+ *Interface Invariant:
+ *                    primecount starts at 2
  *                    range encapsulates the number of arrays
  *                    Prime number generator uses a seperate function to return a incrementing prime number example is 3,5,7,11
  *                    Prime number generator uses the isPrime to check if the number is primew

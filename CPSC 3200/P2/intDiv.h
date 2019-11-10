@@ -6,9 +6,9 @@
  *Version 1.2
  *Platform:VSCode
  *Interface Invariant:div number is positive.
- *                    negative div and 0 numbers default to 1 so no divide by 0.
- *                    When active is false it disables the functionality of test().
- *                    This can be fixed by reset(). However if perm is active it is permanently disabled
+ *                             negative div and 0 numbers default to 1 so no divide by 0.
+ *                             When active is false it disables the functionality of test().
+ *                             This can be fixed by reset(). However if perm is active it is permanently disabled
  **/
 
  class intDiv
