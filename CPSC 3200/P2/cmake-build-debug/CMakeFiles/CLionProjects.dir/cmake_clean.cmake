@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CLionProjects.dir/P2.cpp.obj"
-  "CMakeFiles/CLionProjects.dir/intDiv.cpp.obj"
-  "CMakeFiles/CLionProjects.dir/rangeDiv.cpp.obj"
+  "CMakeFiles/CLionProjects.dir/P2.cpp.o"
+  "CMakeFiles/CLionProjects.dir/intDiv.cpp.o"
+  "CMakeFiles/CLionProjects.dir/rangeDiv.cpp.o"
   "CLionProjects.pdb"
-  "CLionProjects.exe"
-  "CLionProjects.exe.manifest"
-  "libCLionProjects.dll.a"
+  "CLionProjects"
 )
 
 # Per-language clean rules from dependency scanning.

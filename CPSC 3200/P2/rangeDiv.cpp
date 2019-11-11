@@ -23,16 +23,15 @@
 *                          divisibleCount will increase depending on how many numbers had no remainder everytime you call test()
 *                          remainderCount will increase based on how many numbers have remainders everytime you call test()
 *
-*
-**/
-
+*/
 
 #include "rangeDiv.h"
 #include "intDiv.h"
-
-
-rangeDiv::rangeDiv(int input) {
-    if (input <= 0) input = 1;
+#include <utility>
+rangeDiv::rangeDiv(int input)
+{
+    if (input <= 0)
+        input = 1;
     active = true;
     arr = new intDiv[input];
     divisibleCount = 0;
@@ -40,50 +39,63 @@ rangeDiv::rangeDiv(int input) {
     testCount = 0;
     range = input;
     primecount = 2;
-    for (int i = 0; i < range; i++) {
+    for (int i = 0; i < range; i++)
+    {
         arr[i] = intDiv(PrimeNumGen());
     }
-
 }
 
-int rangeDiv::getdivisibleCount() {
+int rangeDiv::getdivisibleCount()
+{
     return divisibleCount;
 }
 
-int rangeDiv::getremainderCount() {
+int rangeDiv::getremainderCount()
+{
     return remainderCount;
 }
 
-int rangeDiv::gettestCount() {
+int rangeDiv::gettestCount()
+{
     return testCount;
 }
 
-void rangeDiv::switchstate() {
+void rangeDiv::switchstate()
+{
     active = !active;
 }
 
-void rangeDiv::test(int num) {
-    if (num <= 0) num = 1;
+void rangeDiv::test(int num)
+{
+    if (num <= 0)
+        num = 1;
     divisibleCount = 0;
     remainderCount = 0;
-    if (!active) return;
-    for (int i = 0; i < range; i++) {
-        if (arr[i].test(num) == 0) {
+    if (!active)
+        return;
+    for (int i = 0; i < range; i++)
+    {
+        if (arr[i].test(num) == 0)
+        {
             divisibleCount++;
             testCount++;
-        } else {
+        }
+        else
+        {
             remainderCount++;
         }
     }
 }
 
-rangeDiv::~rangeDiv() {
+rangeDiv::~rangeDiv()
+{
     delete[] arr;
 }
 
-
-unsigned int rangeDiv::PrimeNumGen() {
-    while (!isPrime(primecount)) {
+unsigned int rangeDiv::PrimeNumGen()
+{
+    while (!isPrime(primecount))
+    {
         primecount++;
     }
     int temp = primecount;
@@ -91,7 +103,8 @@ unsigned int rangeDiv::PrimeNumGen() {
     return temp;
 }
 
-bool rangeDiv::isPrime(int num) {
+bool rangeDiv::isPrime(int num)
+{
 
     if (num <= 1)
         return false;
@@ -103,20 +116,24 @@ bool rangeDiv::isPrime(int num) {
     return true;
 }
 
-rangeDiv::rangeDiv(const rangeDiv &obj) {
+rangeDiv::rangeDiv(const rangeDiv &obj)
+{
     range = obj.range;
     divisibleCount = obj.divisibleCount;
     testCount = obj.testCount;
     remainderCount = obj.remainderCount;
     primecount = obj.primecount;
     arr = new intDiv[range];
-    for (int i = 0; i < range; i++) {
+    for (int i = 0; i < range; i++)
+    {
         arr[i] = obj.arr[i];
     }
 }
 
-rangeDiv &rangeDiv::operator=(const rangeDiv &obj) {
-    if (this == &obj) {
+rangeDiv &rangeDiv::operator=(const rangeDiv &obj)
+{
+    if (this == &obj)
+    {
         return *this;
     }
     delete[] arr;
@@ -126,43 +143,41 @@ rangeDiv &rangeDiv::operator=(const rangeDiv &obj) {
     remainderCount = obj.remainderCount;
     primecount = obj.primecount;
     arr = new intDiv[range];
-    for (int i = 0; i < range; i++) {
+    for (int i = 0; i < range; i++)
+    {
         arr[i] = obj.arr[i];
     }
     return *this;
 }
 
-rangeDiv::rangeDiv(rangeDiv &&obj) {
-    range = obj.range;
-    divisibleCount = obj.divisibleCount;
-    testCount = obj.testCount;
-    remainderCount = obj.remainderCount;
-    primecount = obj.primecount;
-    arr = obj.arr;
-    obj.range = 0;
-    obj.divisibleCount = 0;
-    obj.testCount = 0;
-    obj.remainderCount = 0;
-    obj.primecount = 2;
-    obj.arr = nullptr;
+rangeDiv::rangeDiv(rangeDiv &&obj)
+{
+    std::swap(range, obj.range);
+    std::swap(divisibleCount, obj.divisibleCount);
+    std::swap(testCount, obj.testCount);
+    std::swap(remainderCount, obj.remainderCount);
+    std::swap(primecount, obj.primecount);
+    std::swap(arr, obj.arr);
 }
 
-rangeDiv &rangeDiv::operator=(rangeDiv &&obj) {
-    delete[] arr;
-    range = obj.range;
-    divisibleCount = obj.divisibleCount;
-    testCount = obj.testCount;
-    remainderCount = obj.remainderCount;
-    primecount = obj.primecount;
-    arr = obj.arr;
-    obj.range = 0;
-    obj.divisibleCount = 0;
-    obj.testCount = 0;
-    obj.remainderCount = 0;
-    obj.primecount = 2;
-    obj.arr = nullptr;
+rangeDiv &rangeDiv::operator=(rangeDiv &&obj)
+{
+    std::swap(range, obj.range);
+    std::swap(divisibleCount, obj.divisibleCount);
+    std::swap(testCount, obj.testCount);
+    std::swap(remainderCount, obj.remainderCount);
+    std::swap(primecount, obj.primecount);
+    std::swap(arr, obj.arr);
     return *this;
-
 }
 
-//TODO implement a swap method for move scematics 
+//template <typename T>
+//void swap(T &lhs, T &rhs)
+//{
+//    T &temp(lhs);
+//    lhs = std::move(rhs);
+//    rhs = std::move(temp);
+//}
+
+
+//DONE used <utility>

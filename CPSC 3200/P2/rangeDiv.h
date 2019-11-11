@@ -13,12 +13,12 @@
  *                    if input for constructor is negative or 0 then it is 1
  *                    if input for test() is negative or 0 then its 1
  */
-#include  "intDiv.h"
+#include "intDiv.h"
 #ifndef CLIONPROJECTS_RANGEDIV_H
 #define CLIONPROJECTS_RANGEDIV_H
 
-
-class rangeDiv {
+class rangeDiv
+{
 public:
     //PRECONDITION:Any number except numbers that won't overflow a integer
     //POSTCONDITION: Instantiation of all fields and intDiv array, input number is the size of array
@@ -41,16 +41,16 @@ public:
     void switchstate();
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: copies to the intialized rangeDiv obj
-    rangeDiv(const rangeDiv& obj);
+    rangeDiv(const rangeDiv &obj);
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: switch ownership of the obj
-    rangeDiv(rangeDiv&& obj);
+    rangeDiv(rangeDiv &&obj);
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: copies to the intialized rangeDiv obj
-    rangeDiv& operator=(const rangeDiv& obj);
+    rangeDiv &operator=(const rangeDiv &obj);
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: switch ownership of the obj
-    rangeDiv& operator=(rangeDiv&& obj);
+    rangeDiv &operator=(rangeDiv &&obj);
 
 private:
     //PRECONDITION: a int
@@ -68,6 +68,4 @@ private:
     bool active;
 };
 
-
 #endif //CLIONPROJECTS_RANGEDIV_H
-

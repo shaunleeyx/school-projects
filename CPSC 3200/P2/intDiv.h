@@ -11,8 +11,8 @@
  *                             This can be fixed by reset(). However if perm is active it is permanently disabled
  **/
 
- class intDiv
- {
+class intDiv
+{
 private:
     unsigned int div;
     bool active;
@@ -23,7 +23,7 @@ private:
     //PRECONDITION:input any number
     //POSTCONDITION: it sets div to num and intializes all other fields to a value or a state
 public:
-     intDiv();
+    intDiv();
     intDiv(unsigned int num);
     //PRECONDITION:input a positive number
     //POSTCONDITION:returns the remainder of the number you inputted divided by div or -1 or -2 depending on the state of active and perm
@@ -34,12 +34,19 @@ public:
     //PRECONDITION:none
     //POSTCONDITION:returns active's state
     bool getActive();
-
+    //PRECONDITION:none
+    //POSTCONDITION: resets object to default state (including perminactive)
     void reset();
+    //PRECONDITION: a existing rangeDiv obj
+    //POSTCONDITION: switch ownership of the obj
+    intDiv &operator + (intDiv &obj); //IntDiv a = IntDiv b + Intdiv c
+    intDiv &operator - (intDiv &obj);//IntDiv a - IntDiv b
+    intDiv &operator += (intDiv &obj);//IntDiv a += intDiv b
+    intDiv &operator += (int &obj);//IntDiv a += int b
+    intDiv &operator -= (intDiv &obj);//intDiv a -= intdiv b
+    intDiv &operator -= (int &obj);//intDiv a -= int b
 
- };
-
-
-
+    
+};
 
 #endif
