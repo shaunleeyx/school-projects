@@ -183,7 +183,15 @@ rangeDiv &rangeDiv::operator-=(rangeDiv &obj)//gets the difference between both 
 
 }
 
+rangeDiv &rangeDiv::operator>(rangeDiv &obj)//compares the range of both rangeDiv objects
+{
 
+}
+
+rangeDiv &rangeDiv::operator<(rangeDiv &obj)//compares the range of both rangeDiv objects
+{
+
+}
 
 
 

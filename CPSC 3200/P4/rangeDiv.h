@@ -1,4 +1,3 @@
-
 /**
  *Author:Shaun Lee
  *Date:11/03/2019
@@ -55,6 +54,8 @@ public:
     rangeDiv &operator+=(rangeDiv &obj);
     rangeDiv &operator+(int &obj);
     rangeDiv &operator-=(rangeDiv &obj);
+    rangeDiv &operator<(rangeDiv &obj);//compares the range of both rangeDiv objects
+    rangeDiv &operator>(rangeDiv &obj);//compares the range of both rangeDiv objects
 private:
     //PRECONDITION: a int
     //POSTCONDITION: returns true or false depending if its prime
