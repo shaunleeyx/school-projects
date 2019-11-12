@@ -5,10 +5,12 @@
  *11/03/2019
  *Version 1.2
  *Platform:VSCode
- *Interface Invariant:div number is positive.
+ *Interface Invariant:         div number is positive.
  *                             negative div and 0 numbers default to 1 so no divide by 0.
  *                             When active is false it disables the functionality of test().
  *                             This can be fixed by reset(). However if perm is active it is permanently disabled
+ *                             Did not implement a '=' operator since it interferes with the intialization of a intDiv array in the rangeDiv class
+ * 
  **/
 
 class intDiv
@@ -40,13 +42,11 @@ public:
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: switch ownership of the obj
     intDiv &operator + (intDiv &obj); //IntDiv a = IntDiv b + Intdiv c
-    intDiv &operator - (intDiv &obj);//IntDiv a - IntDiv b
+    intDiv &operator - (intDiv &obj);//IntDiva = IntDiv b - IntDiv b
     intDiv &operator += (intDiv &obj);//IntDiv a += intDiv b
     intDiv &operator += (int &obj);//IntDiv a += int b
     intDiv &operator -= (intDiv &obj);//intDiv a -= intdiv b
     intDiv &operator -= (int &obj);//intDiv a -= int b
-
-    
 };
 
 #endif

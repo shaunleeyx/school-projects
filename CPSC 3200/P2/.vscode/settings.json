@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "__bit_reference": "cpp",
+        "complex": "cpp",
+        "deque": "cpp",
+        "iterator": "cpp",
+        "string": "cpp",
+        "type_traits": "cpp"
+    }
+}

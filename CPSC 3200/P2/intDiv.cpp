@@ -101,3 +101,39 @@ void intDiv::reset()
     active = true;
     lastnum = -1;
 }
+//TODO
+intDiv &intDiv::operator+(intDiv &obj)//adds intDivA's div with intDivB's div
+{
+    
+}
+
+//TODO
+intDiv &intDiv::operator-(intDiv &obj)//minuses intDivA's div with intDivB's div
+{
+    
+}
+
+//TODO
+intDiv &intDiv::operator+=(intDiv &obj)//same thing as line 105 but with += 
+{
+    
+}
+
+//TODO
+intDiv &intDiv::operator+=(int &obj)//adds intDiv's div by int
+{
+    
+}
+
+//TODO
+intDiv &intDiv::operator-=(intDiv &obj)//same thing as line 105 but with += 
+{
+    
+}
+
+//TODO
+intDiv &intDiv::operator-=(int &obj)//subracts intDiv's div by int
+
+{
+    
+}

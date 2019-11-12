@@ -170,6 +170,23 @@ rangeDiv &rangeDiv::operator=(rangeDiv &&obj)
     std::swap(arr, obj.arr);
     return *this;
 }
+rangeDiv &rangeDiv::operator+=(rangeDiv &obj)//it appends LHS rangeDiv's array with RHS rangeDiv's array
+{
+
+}
+rangeDiv &rangeDiv::operator+(int &obj)//it adds a int to the end of the array
+{
+
+}
+rangeDiv &rangeDiv::operator-=(rangeDiv &obj)//gets the difference between both rangeDiv objects
+{
+
+}
+
+
+
+
+
 
 //template <typename T>
 //void swap(T &lhs, T &rhs)

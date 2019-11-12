@@ -12,6 +12,7 @@
  *                    Prime number generator uses the isPrime to check if the number is primew
  *                    if input for constructor is negative or 0 then it is 1
  *                    if input for test() is negative or 0 then its 1
+ *                    did not implement - operator because it has too much overhead(finding the index and then resizing so the array doesn't have the element)
  */
 #include "intDiv.h"
 #ifndef CLIONPROJECTS_RANGEDIV_H
@@ -48,10 +49,12 @@ public:
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: copies to the intialized rangeDiv obj
     rangeDiv &operator=(const rangeDiv &obj);
+    rangeDiv &operator=( rangeDiv &&obj);
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: switch ownership of the obj
-    rangeDiv &operator=(rangeDiv &&obj);
-
+    rangeDiv &operator+=(rangeDiv &obj);
+    rangeDiv &operator+(int &obj);
+    rangeDiv &operator-=(rangeDiv &obj);
 private:
     //PRECONDITION: a int
     //POSTCONDITION: returns true or false depending if its prime
