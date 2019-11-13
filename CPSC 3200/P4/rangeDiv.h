@@ -22,7 +22,7 @@ class rangeDiv
 public:
     //PRECONDITION:Any number except numbers that won't overflow a integer
     //POSTCONDITION: Instantiation of all fields and intDiv array, input number is the size of array
-    rangeDiv(int num);
+    rangeDiv(int num = 1);
     ~rangeDiv();
     //PRECONDITION: Any number except numbers that won't overflow a integer
     //POSTCONDITION: testCount will incremented by 1, divisibleCount will increase depending on how many numbers had no remainder, remainderCount will increase based on how many numbers have remainders
@@ -51,11 +51,15 @@ public:
     rangeDiv &operator=( rangeDiv &&obj);
     //PRECONDITION: a existing rangeDiv obj
     //POSTCONDITION: switch ownership of the obj
-    rangeDiv &operator+=(rangeDiv &obj);
-    rangeDiv &operator+(int &obj);
-    rangeDiv &operator-=(rangeDiv &obj);
-    rangeDiv &operator<(rangeDiv &obj);//compares the range of both rangeDiv objects
-    rangeDiv &operator>(rangeDiv &obj);//compares the range of both rangeDiv objects
+    
+    void  operator+=(rangeDiv rhs);
+    rangeDiv operator+(rangeDiv rhs);
+    rangeDiv operator+(int rhs);
+    void operator-=(rangeDiv rhs);
+    rangeDiv operator-(rangeDiv rhs);
+    bool operator<(rangeDiv rhs);//compares the range of both rangeDiv objects
+    bool operator>(rangeDiv rhs);//compares the range of both rangeDiv objects
+    
 private:
     //PRECONDITION: a int
     //POSTCONDITION: returns true or false depending if its prime

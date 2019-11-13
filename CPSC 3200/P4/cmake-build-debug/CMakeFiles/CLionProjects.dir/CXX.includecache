@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/P4.cpp
+queue
+-
+iostream
+-
+ctime
+-
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/intDiv.h
+rangeDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/rangeDiv.h
+memory
+-
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/intDiv.cpp
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/intDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/intDiv.h
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/rangeDiv.cpp
+rangeDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/rangeDiv.h
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/intDiv.h
+utility
+-
+
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/rangeDiv.h
+intDiv.h
+C:/Users/shaun/OneDrive/Documents/GitHub/school-projects/CPSC 3200/P4/intDiv.h
+

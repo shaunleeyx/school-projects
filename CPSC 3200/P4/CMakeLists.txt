@@ -3,4 +3,4 @@ project(CLionProjects)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(CLionProjects P2.cpp intDiv.cpp intDiv.h rangeDiv.cpp rangeDiv.h)
+add_executable(CLionProjects P4.cpp intDiv.cpp intDiv.h rangeDiv.cpp rangeDiv.h)
