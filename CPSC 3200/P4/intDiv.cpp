@@ -16,6 +16,7 @@
  *                                   num in test is unsigned
  *                                   if intdivobject inactive then test() will return -1
  *                                   if intdiv object is perminactive then test() will return -2 
+ *                                   operator +,-,+=,-= for mixed modes and intDiv objs can have negatives
  * 
  *            Implementation invariant:     renamed reset() to revive()
  *            (with assumptions)                removed getPerm()
@@ -27,6 +28,13 @@
  *                                                        changed line 66 from active = true to active = !active;
  *                                                        if inactive then test() will return -1
  *                                                        if perminactive then test() will return -2
+ *                                                        + operator returns an obj of the sum of both lhs and rhs'divs 
+ *                                                        - operator returns an obj of the difference of both lhs and rhs'divs 
+ *                                                        +=  assigns lhs the sum of both the intdiv's divs
+ *                                                        mixed modes support: +=,-=,+,- rhs has to be int
+ *                                                         >,< operators compare only intDiv objs's div values
+ *                                                          ==,!= operators compare the datavalues of the intDiv objects
+ *                                                         
  */
 
 #include "intDiv.h"
@@ -102,70 +110,75 @@ bool intDiv::getActive()
 //Postcondition: resets object to default state (including perminactive)
 void intDiv::reset()
 {
-perminactive = false;
-active = true;
-lastnum = -1;
+    perminactive = false;
+    active = true;
+    lastnum = -1;
 }
 
-//Precondition:
-//Postcondition:
-intDiv intDiv::operator+(intDiv rhs) //adds intDivA's div with intDivB's div
+//Precondition:intDiv obj
+//Postcondition:adds intDivA's div with intDivB's div
+//IntDiv a = IntDiv b + Intdiv c
+intDiv intDiv::operator+(intDiv rhs) 
 {
     intDiv originalobj(*this);
     originalobj.div += rhs.div;
-    return originalobj; 
+    return originalobj;
 }
 
-//Precondition:
-//Postcondition:
-intDiv intDiv::operator-(intDiv rhs) //minuses intDivA's div with intDivB's 
-{ 
+//Precondition:intDiv obj
+//Postcondition:subtracts intDivA's div with intDivB's
+//IntDiva = IntDiv b - IntDiv b
+intDiv intDiv::operator-(intDiv rhs) 
+{
     intDiv originalobj(*this);
     originalobj.div -= rhs.div;
-    return originalobj; 
+    return originalobj;
 }
 
-//Precondition:
-//Postcondition:
-void intDiv::operator+=(intDiv rhs) //same thing as line 105 but with +=;
-{ 
+//Precondition:intDiv obj
+//Postcondition:adds the obj's div from rhs to lhs
+//IntDiv a += intDiv b
+void intDiv::operator+=(intDiv rhs) 
+{
     div += rhs.div;
 }
 
-//Precondition:
-//Postcondition:
+//Precondition:intDiv obj
+//Postcondition:subtracts the obj's div from rhs to lhs
 void intDiv::operator-=(intDiv rhs) //same thing as line 105 but with +=
 {
     div -= rhs.div;
 }
 
-//Precondition:
-//Postcondition:
+//Precondition:int pos or neg
+//Postcondition:adds int to the intDiv obj's div
+//IntDiv a += int b
 void intDiv::operator+=(int rhs) //adds intDiv's div by int
 {
     div += rhs;
 }
 
-//Precondition:
-//Postcondition:
+//Precondition:int pos or neg
+//Postcondition:subtracts int to the intDiv obj's div
 intDiv intDiv::operator-=(int rhs) //subracts intDiv's div by int
-{ 
-     intDiv originalobj(*this);
-    originalobj.div -= rhs;
-    return originalobj; 
-}
-
-//Precondition:
-//Postcondition:
-intDiv intDiv::operator-(int rhs) //minuses intDivA's div with intDivB's
 {
     intDiv originalobj(*this);
     originalobj.div -= rhs;
     return originalobj;
 }
 
-//Precondition:
-//Postcondition:
+//Precondition:int pos or neg
+//Postcondition:subtracts intDivA's div with intDivB's
+//minuses intDivA's div with intDivB's
+intDiv intDiv::operator-(int rhs) 
+{
+    intDiv originalobj(*this);
+    originalobj.div -= rhs;
+    return originalobj;
+}
+
+//Precondition:int pos or neg
+//Postcondition:adds rhs to lhs's div value
 intDiv intDiv::operator+(int rhs) //minuses intDivA's div with intDivB's
 {
     intDiv originalobj(*this);
@@ -173,20 +186,33 @@ intDiv intDiv::operator+(int rhs) //minuses intDivA's div with intDivB's
     return originalobj;
 }
 
-//Precondition:
-//Postcondition:
-bool intDiv:: operator>(intDiv rhs)
-{ 
-     return (div > rhs.div);
+//Precondition:intDiv obj
+//Postcondition:returns true if lhs'div is greater than rhs's div
+bool intDiv::operator>(intDiv rhs)
+{
+    return (div > rhs.div);
 }
 
-//Precondition:
-//Postcondition:
-bool intDiv:: operator<(intDiv rhs)
+//Precondition:intDiv obj
+//Postcondition:returns true if lhs's div is less than rhs div
+bool intDiv::operator<(intDiv rhs)
 {
     return (div < rhs.div);
 }
 
-int intDiv::getDiv(){
-    return div;
+//Precondition:intdiv obj
+//Postcondition:returns true if Intdiv obj lhs doesn't equal to intdiv obj rhs
+bool intDiv::operator!=(intDiv rhs)
+{
+    return !(*this == rhs);
 }
+
+//Precondition:intdiv obj
+//Postcondition:returns true if Intdiv obj lhs equals to intdiv obj rhs
+bool intDiv::operator==(intDiv rhs)
+{
+    if (this == &rhs)
+        return true;
+    return (active == rhs.active && div == rhs.div && lastnum == rhs.lastnum);
+}
+

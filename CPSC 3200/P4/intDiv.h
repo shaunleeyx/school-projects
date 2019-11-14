@@ -10,7 +10,10 @@
  *                             When active is false it disables the functionality of test().
  *                             This can be fixed by reset(). However if perm is active it is permanently disabled
  *                             Did not implement a '=' operator since it interferes with the intialization of a intDiv array in the rangeDiv class
- * 
+ *                             the int in the operators can be negative
+ *                             do not overflow the integer
+ *                             there is mixed mode operators for intdiv and int
+ *                              mixed mode operators consist of +=,-,+,-=
  **/
 
 class intDiv
@@ -21,24 +24,25 @@ private:
     bool perminactive;
     int lastnum;
     int testcount;
-    
+
 public:
     intDiv(unsigned int num = 1);
     int test(unsigned int num);
     void revive();
     bool getActive();
     void reset();
-    intDiv operator + (intDiv rhs); //IntDiv a = IntDiv b + Intdiv c
-    intDiv operator - (intDiv rhs);//IntDiva = IntDiv b - IntDiv b
-    void operator += (intDiv rhs);//IntDiv a += intDiv b
-    void operator += (int rhs);//IntDiv a += int b
-    intDiv operator-(int rhs); //minuses intDivA's div with intDivB's
-    intDiv operator+(int rhs); //minuses intDivA's div with intDivB's
-    void operator -= (intDiv rhs);//intDiv a -= intdiv b
-    intDiv operator -= (int rhs);//intDiv a -= int b
-    bool operator > (intDiv rhs);
-    bool operator < (intDiv rhs);
-    int getDiv(); 
+    intDiv operator+(intDiv rhs); 
+    intDiv operator-(intDiv rhs); 
+    void operator+=(intDiv rhs);  
+    void operator+=(int rhs);     
+    intDiv operator-(int rhs);    
+    intDiv operator+(int rhs);    
+    void operator-=(intDiv rhs);  
+    intDiv operator-=(int rhs);  
+    bool operator>(intDiv rhs);
+    bool operator<(intDiv rhs);
+    bool operator!=(intDiv rhs);
+    bool operator==(intDiv rhs);
 };
 
 #endif
