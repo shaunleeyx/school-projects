@@ -19,6 +19,19 @@
 *                          primecount starts at 2 since 0,1 and 2 cannot be counted as prime numbers
 *                          if intDiv object is inactive it will return -1 if it is permanently  inactive then it will return -2
 *                          move semantics swaps ownerships of both objects
+*                           operator intDiv + intDiv will assign lhs an intdiv obj with the range of sum of both the ranges for example {2,3,5} + {2} = {2,3,5,7}
+*                           + operators will return the sum of two intDiv objects
+*                            += operator will assign LHS a new rangeDiv obj will the sum of both of  lhs and rhs ranges
+*                           == operator will return true if lhs and rhs have the same data type or is the same obj
+*                           != operator wil return the inverse of "=="
+*                           all the subtraction operators like -=,- for both types. if range value is negative it will default to 1
+*                           destructor is called when rangeDiv obj is getting deleted
+*                           Supports mixed modes for rangeDivs and ints for addition and subtraction
+*                           >,< compares the range numbers of both of the rangeDiv objects
+*                           replaced move semantics with a swap method so it swaps ownership of the objects for both of the objects
+*                           there are get methods for some data members such as diviscount and remaindercount that won't violate encapsulation
+*                           change the code for switchstate
+*                           change the code for the active condition in the test()
 *                          
 * 
 *Class Invariant: 
@@ -28,17 +41,23 @@
 *                          remainderCount will increase based on how many numbers have remainders everytime you call test()
 *                          range is the size of the intDiv array
 *                          The prime numbers aren't random they are incremental prime values 
+*                           int can only go up to 2.3billion
+*                           Prime count will start at 2 because prime numbers start at 2
+*                           array is deleted when obj is deleted
+
+*                            
 *
 */
-#include <iostream>
 #include "rangeDiv.h"
 #include "intDiv.h"
-#include <utility>
+
+//Precondition:Any number except numbers that won't overflow a integer
+//Postcondition: Instantiation of all fields and intDiv array, input number is the size of array
 rangeDiv::rangeDiv(int input)
 {
+    active = true;
     if (input <= 0)
         input = 1;
-    active = true;
     arr = new intDiv[input];
     divisibleCount = 0;
     remainderCount = 0;
@@ -51,49 +70,63 @@ rangeDiv::rangeDiv(int input)
     }
 }
 
+//Precondition:none
+//Postcondition:returns divisibleCount
 int rangeDiv::getdivisibleCount()
 {
     return divisibleCount;
 }
 
+//Precondition:none
+//Postcondition: returns remainderCount
 int rangeDiv::getremainderCount()
 {
     return remainderCount;
 }
 
+//Precondition: none
+//Postcondition: returns testCount
 int rangeDiv::gettestCount()
 {
     return testCount;
 }
 
+//Precondition:none
+//Postcondition:changes the active state from positive to negative and negative to positive
 void rangeDiv::switchstate()
 {
     active = !active;
 }
-
-void rangeDiv::test(int num)
+void rangeDiv::reset()
 {
-    std::cout << "invoked" << std::endl;
-    if (num <= 0)
-        num = 1;
+    active = true;
     divisibleCount = 0;
     remainderCount = 0;
-    // if (!active)
-    //     return;
-    for (int i = 0; i < range; i++)
+    testCount = 0;
+    primecount = 2;
+}
+//Precondition: Any number except numbers that won't overflow a integer
+//Postcondition: testCount will incremented by 1, divisibleCount will increase depending on how many numbers had no remainder, remainderCount will increase based on how many numbers have remainders
+void rangeDiv::test(int num)
+{
+    if (active)
     {
-        int temp = arr[i].test(num);
-        std::cout << "asdasd:" << temp << std::endl;
-        if (temp == 0)
+        if (num <= 0)
+            num = 1;
+        divisibleCount = 0;
+        remainderCount = 0;
+        for (int i = 0; i < range; i++)
         {
-            std::cout << "divis" << std::endl;
-            divisibleCount++;
-            testCount++;
-        }
-        else
-        {
-            std::cout << "not divis" << std::endl;
-            remainderCount++;
+            int temp = arr[i].test(num);
+            if (temp == 0)
+            {
+                divisibleCount++;
+                testCount++;
+            }
+            else
+            {
+                remainderCount++;
+            }
         }
     }
 }
@@ -103,6 +136,8 @@ rangeDiv::~rangeDiv()
     delete[] arr;
 }
 
+//Precondition: none
+//Postcondition: generates a primenumber incrementing upwards 2,3,5,7,11
 unsigned int rangeDiv::PrimeNumGen()
 {
     while (!(primecount))
@@ -114,9 +149,10 @@ unsigned int rangeDiv::PrimeNumGen()
     return temp;
 }
 
+//Precondition: a int
+//Postcondition: returns true or false depending if its prime
 bool rangeDiv::isPrime(int num)
 {
-
     if (num <= 1)
         return false;
 
@@ -127,6 +163,8 @@ bool rangeDiv::isPrime(int num)
     return true;
 }
 
+//Precondition: a existing rangeDiv obj
+//Postcondition: copies to the intialized rangeDiv obj
 rangeDiv::rangeDiv(const rangeDiv &obj)
 {
     range = obj.range;
@@ -141,6 +179,8 @@ rangeDiv::rangeDiv(const rangeDiv &obj)
     }
 }
 
+//Precondition: a existing rangeDiv obj
+//Postcondition: copies to the intialized rangeDiv obj
 rangeDiv &rangeDiv::operator=(const rangeDiv &obj)
 {
     if (this == &obj)
@@ -161,30 +201,9 @@ rangeDiv &rangeDiv::operator=(const rangeDiv &obj)
     return *this;
 }
 
-rangeDiv::rangeDiv(rangeDiv &&obj)
-{
-    std::swap(range, obj.range);
-    std::swap(divisibleCount, obj.divisibleCount);
-    std::swap(testCount, obj.testCount);
-    std::swap(remainderCount, obj.remainderCount);
-    std::swap(primecount, obj.primecount);
-    std::swap(arr, obj.arr);
-}
-
-rangeDiv &rangeDiv::operator=(rangeDiv &&obj)
-{
-    std::swap(range, obj.range);
-    std::swap(divisibleCount, obj.divisibleCount);
-    std::swap(testCount, obj.testCount);
-    std::swap(remainderCount, obj.remainderCount);
-    std::swap(primecount, obj.primecount);
-    std::swap(arr, obj.arr);
-    return *this;
-}
-/**
- * adds both of the ranges of the rangeDiv objects and then generates prime numbers up to the new range
- * example: obj1 = [2,3,5] + obj2 = [2,3,5] -> obj1 = [2,3,5,7,11,13]
- **/
+//Precondition:a rangeDiv object
+//Postcondition:adds both of the ranges of the rangeDiv objects and then generates prime numbers up to the new range
+//example: obj1 = [2,3,5] + obj2 = [2,3,5] -> obj1 = [2,3,5,7,11,13]
 void rangeDiv::operator+=(rangeDiv rhs)
 {
     primecount = 2;
@@ -198,7 +217,42 @@ void rangeDiv::operator+=(rangeDiv rhs)
     arr = temp;
 }
 
-rangeDiv rangeDiv::operator+(rangeDiv rhs) //it appends LHS rangeDiv's array with RHS rangeDiv's array
+//Precondition: int
+//Postcondition:similar to += rangediv rhs except you can add rangeDiv += intdiv
+void rangeDiv::operator+=(int rhs)
+{
+    primecount = 2;
+    range += rhs;
+    intDiv *temp = new intDiv[range];
+    for (int i = 0; i < range; i++)
+    {
+        temp[i] = PrimeNumGen();
+    }
+    delete[] arr;
+    arr = temp;
+}
+
+//Precondition: int
+//Postcondition:get the difference between both rangeDiv and int  for example {2,3,5} and 1 = {2,3}
+void rangeDiv::operator-=(int rhs)
+{
+    primecount = 2;
+    int newrange = range - rhs;
+    if (newrange <= 0)
+        newrange = 1;
+    range = newrange;
+    intDiv *temp = new intDiv[range];
+    for (int i = 0; i < range; i++)
+    {
+        temp[i] = PrimeNumGen();
+    }
+    delete[] arr;
+    arr = temp;
+}
+
+//Precondition:rangeDiv obj
+//Postcondition:get the sum of both rangeDiv and rangeDiv  for example {2,3,5} and {2} = {2,3,5,7}
+rangeDiv rangeDiv::operator+(rangeDiv rhs)
 {
     rangeDiv originalobj(*this);
     originalobj.primecount = 2;
@@ -213,7 +267,9 @@ rangeDiv rangeDiv::operator+(rangeDiv rhs) //it appends LHS rangeDiv's array wit
     return originalobj;
 }
 
-rangeDiv rangeDiv::operator+(int rhs) //it adds a int to the end of the array
+//Precondition:int
+//Postcondition:get the sum of both rangeDiv and int  for example {2,3,5} and 1 = {2,3,5,7}
+rangeDiv rangeDiv::operator+(int rhs)
 {
     rangeDiv originalobj(*this);
     originalobj.primecount = 2;
@@ -227,13 +283,30 @@ rangeDiv rangeDiv::operator+(int rhs) //it adds a int to the end of the array
     originalobj.arr = temp;
     return originalobj;
 }
-/**
- * 
- *range cannot be below 1 
- * 
- * 
- **/
-void rangeDiv::operator-=(rangeDiv rhs) //gets the difference between both rangeDiv objects
+
+//Precondition:int
+//Postcondition:get the difference between both rangeDiv and int  for example {2,3,5} and 1 = {2,3}
+rangeDiv rangeDiv::operator-(int rhs) 
+{
+    rangeDiv originalobj(*this);
+    originalobj.primecount = 2;
+    int newrange = range - rhs;
+    if (newrange <= 0)
+        newrange = 1;
+    originalobj.range = newrange;
+    intDiv *temp = new intDiv[originalobj.range];
+    for (int i = 0; i < originalobj.range; i++)
+    {
+        temp[i] = PrimeNumGen();
+    }
+    delete[] originalobj.arr;
+    originalobj.arr = temp;
+    return originalobj;
+}
+
+//Precondition:rangeDiv obj
+//Postcondition:get the difference between both rangeDiv objs for example {2,3,5} and {2} = {2,3}
+void rangeDiv::operator-=(rangeDiv rhs) 
 {
     primecount = 2;
     int newrange = range - rhs.range;
@@ -248,7 +321,9 @@ void rangeDiv::operator-=(rangeDiv rhs) //gets the difference between both range
     delete[] arr;
 }
 
-rangeDiv rangeDiv::operator-(rangeDiv rhs) //gets the difference between both rangeDiv objects
+//Precondition:rangeDiv obj
+//Postcondition:same as rangeDiv -= rangeDiv
+rangeDiv rangeDiv::operator-(rangeDiv rhs)
 {
     rangeDiv originalobj(*this);
     originalobj.primecount = 2;
@@ -266,22 +341,75 @@ rangeDiv rangeDiv::operator-(rangeDiv rhs) //gets the difference between both ra
     return originalobj;
 }
 
+//Precondition:rangediv obj
+//Postcondition:you can get the result of this boolean operator rangeDiv > rangeDiv
 bool rangeDiv::operator>(rangeDiv rhs) //compares the range of both rangeDiv objects
 {
-    return(range > rhs.range);
+    return (range > rhs.range);
 }
 
+//Precondition:rangediv obj
+//Postcondition:same thing as previous but reverse
 bool rangeDiv::operator<(rangeDiv rhs) //compares the range of both rangeDiv objects
 {
-    return(range < rhs.range);
+    return (range < rhs.range);
 }
 
-//template <typename T>
-//void swap(T &lhs, T &rhs)
-//{
-//    T &temp(lhs);
-//    lhs = std::move(rhs);
-//    rhs = std::move(temp);
-//}
+//Precondition:rangeDiv obj
+//Postcondition:checks to see if both rangeDiv obj have the same data values
+bool rangeDiv::operator==(rangeDiv rhs)
+{
+    if (this == &rhs)
+        return true;
+    if (range != rhs.range)
+        return false;
+    bool same = true;
+    for (int i = 0; i < range; i++)
+    {
+        if (arr[i] != rhs.arr[i])
+            same = false;
+    }
+    return same;
+}
 
-//DONE used <utility>
+//Precondition:rangeDiv obj
+//Postcondition:same thing as previous but inverse
+bool rangeDiv::operator!=(rangeDiv rhs)
+{
+    return !(*this == rhs);
+}
+
+//Precondition: a existing rangeDiv obj
+//Postcondition: switch ownership of the obj
+rangeDiv::rangeDiv(rangeDiv &&obj)
+{
+    swap(range, obj.range);
+    swap(divisibleCount, obj.divisibleCount);
+    swap(testCount, obj.testCount);
+    swap(remainderCount, obj.remainderCount);
+    swap(primecount, obj.primecount);
+    swap(arr, obj.arr);
+}
+
+//Precondition: a existing rangeDiv obj
+//Postcondition: switch ownership of the obj
+rangeDiv &rangeDiv::operator=(rangeDiv &&obj)
+{
+    swap(range, obj.range);
+    swap(divisibleCount, obj.divisibleCount);
+    swap(testCount, obj.testCount);
+    swap(remainderCount, obj.remainderCount);
+    swap(primecount, obj.primecount);
+    swap(arr, obj.arr);
+    return *this;
+}
+
+//Precondition: 2 objects
+//Postcondition:swaps ownership to both of the handlers
+template <typename T>
+void rangeDiv::swap(T &lhs, T &rhs)
+{
+    T temp = lhs;
+    lhs = rhs;
+    rhs = temp;
+}
