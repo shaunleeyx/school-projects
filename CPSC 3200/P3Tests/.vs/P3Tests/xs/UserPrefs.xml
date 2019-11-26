@@ -1,0 +1,42 @@
+﻿<Properties StartupConfiguration="{EA2F55DB-D7FC-4AA5-BEA9-87E00F3C51ED}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="P3Tests/P3Test.cs">
+    <Files>
+      <File FileName="P3Tests/UnitTest1.cs" Line="153" Column="1" />
+      <File FileName="P3Tests/arithS.cs" />
+      <File FileName="P3Tests/oscillateA.cs" />
+      <File FileName="P3Tests/skipA.cs" />
+      <File FileName="../P1Test/P1Test/P1Test.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P3Tests" expanded="True">
+            <Node name="P3Tests" expanded="True">
+              <Node name="P3Test.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="P3Tests" expanded="True">
+            <Node name="P3Tests" expanded="True" selected="True">
+              <Node name="P3Tests" expanded="True">
+                <Node name="arithSTest" expanded="True" />
+                <Node name="oscillateATest" expanded="True" />
+                <Node name="skipATest" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.P3Tests PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
