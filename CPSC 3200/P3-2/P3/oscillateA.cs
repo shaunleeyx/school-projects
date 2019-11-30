@@ -62,5 +62,6 @@ namespace P3
  *           reversebool is to keep track of the oscillating
  *           obj starts out at 0
  *           changed the override yield function. made the oscillatea yield use the base yield function and then modify and return the value. 
+ *           remove error code message -1 when it arithS's state is not in any of the three states
  *           
  */
