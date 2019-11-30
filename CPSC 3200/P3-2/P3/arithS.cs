@@ -33,7 +33,7 @@ namespace P3
         protected static int[] forbidden;
         protected int modechangeCount;
         protected int yieldCount;
-        private int remember;
+        private int lastnum;
 
         protected enum State
         {
@@ -43,13 +43,13 @@ namespace P3
         }
         //PRECONDITION: 1st arg:postive number,2nd arg:an int array with any number
         //POSTCONDITION:sequence = 1st arg, forbidden = 2nd arg
-        public arithS(int num,int[] arr)
+        public arithS(int difference,int[] fset, int thold)
         {
-            if(num < 0) num = 0;
+            if( difference< 0)  difference= 0;
             current = 0; 
-            threshold = 5; 
-            forbidden = arr;
-            sequence = num; // add or sub num to current
+            threshold = thold-1; 
+            forbidden = fset;
+            sequence = difference; // add or sub num to current
             objState = State.Stuck;
             yieldCount = 0;
             modechangeCount = 0;
@@ -103,7 +103,7 @@ namespace P3
             return -1; 
         }
 
-        public int numGen()
+        public virtual int numGen()
         {
             return yieldCount;
         }
@@ -122,16 +122,16 @@ namespace P3
             return modechangeCount;
         }
         //PRECONDITION: a int
-        //POSTCONDITION:if number is in forbidden set then return remember but if not then return the number passed in
+        //POSTCONDITION:if number is in forbidden set then return lastnum but if not then return the number passed in
         protected int forbiddenCheck(int num)
         {
             if (inForbidden(num))
             {
-                return remember;
+                return lastnum;
             }
             else
             {
-                remember = num;
+                lastnum = num;
                 return num;
             }
         }
@@ -158,7 +158,7 @@ namespace P3
             }
             else
             {
-                remember = num;
+                lastnum = num;
                 return num;
             }
             
@@ -170,11 +170,13 @@ namespace P3
  * Implementation invariant: current is intialized at 0
  *                           threshold intialized at 5
  *                           if num is negative then its intialized to 0
- *                           remember is the last number before yield is in forbidden set
+ *                           lastnum is the last number before yield is in forbidden set
  *                           tresholdCheck(int) checks if the amount of yield calls exceed threshold
  *                           inForbidden(int) checks if yield's return is in the forbidden set
  *                           forbiddenCheck(int) decides what to do with the number if its in forbiddenset
  *                           obj's state is intialized to stuck by default
  *                           if obj is in neither of the 3 states yield will return -1
+ *                           I set the starting value to 0 since 0 isn't a error code
+ *                          made numgen a virtual function because its different for skipA
  */
                             

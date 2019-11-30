@@ -19,51 +19,34 @@ namespace P3
     public class oscillateA:arithS
     {   //PRECONDITION:and int and an int arr
         //POSTCONDITION: encapsulates both of those numbers to sequence and forbidden set
-        private bool reverseBool;
-        public oscillateA(int num,int[] arr) : base(num,arr)
+        private bool reversebool;
+        public oscillateA(int difference,int[] fset,int thold) : base(difference,fset,thold)
         {
-            reverseBool = false;
+            reversebool = false;
         }
         //PRECONDITION: obj should be set in 1 of the three states
         //POSTCONDITION: returns values incremented by sequence
         public override int yield()
         {
-            yieldCount++;
-            switch (objState)
-            {
-               
-                case State.Stuck:
-                    return thresholdCheck(reverse(current));
-                case State.Advance:
-                    current += sequence;
-                    return thresholdCheck(reverse(current));
-                case State.Retreat:
-                    current -= sequence;
-                    return thresholdCheck(reverse(current));
-            }
-
-            return -1; 
+            return thresholdCheck(reverse(base.yield()));
         }
         public override void reset()
         {
-            current = 0;
-            objState = State.Stuck;
-            yieldCount = 0;
-            modechangeCount = 0;
-            reverseBool = false;
+            base.reset();
+            reversebool = false;
         }
-        //PRECONDITION: takes in an int
-        //POSTCONDITION: returns a negative and positive int you passed in. in sequence
+        //precondition: takes in an int
+        //postcondition: returns a negative and positive int you passed in. in sequence
         private int reverse(int n)
         {
-            if (reverseBool)
+            if (reversebool)
             {
-                reverseBool = false;
+                reversebool = false;
                 return n * -1;
             }
             else
             {
-                reverseBool = true;
+                reversebool = true;
                 return n;
             }
         }
@@ -71,12 +54,13 @@ namespace P3
     }
 }
 /*
- * Implementation invariant:
- * Function: reverse(int): sets the return value of the number to negative for every other number. it does this by multiplying the number by -1 every other call
- *           reset(): resets the reverseBool to false that originally have been set to false;
+ * implementation invariant:
+ * function: reverse(int): sets the return value of the number to negative for every other number. it does this by multiplying the number by -1 every other call
+ *           reset(): resets the reversebool to false that originally have been set to false;
  *           yield(): it first reverses current and then checks if its exceed the threshold and its in the forbidden set
  *           if yield is called and the obj is in none of the 3 states then it returns -1
  *           reversebool is to keep track of the oscillating
  *           obj starts out at 0
- *          
+ *           changed the override yield function. made the oscillatea yield use the base yield function and then modify and return the value. 
+ *           
  */

@@ -12,46 +12,28 @@
  *                                                         
  **/
 using System;
-namespace P3
-{
-    public class skipA:arithS
-    {
+namespace P3 {
+    public class skipA : arithS {
         private int skipNum;
         //PRECONDITION: positive num, int[] of any number, positive number
         //POSTCONDITION: sets num to sequence, arr to forbidden and num2 to skipNum
-        public skipA(int num, int[] arr,int num2) : base(num, arr)
-        {
-            if(num2 < 0) num2 = 0;
-            skipNum = num2+1;
+        public skipA (int difference, int[] fset, int thold, int skipn) : base (difference, fset, thold) {
+            if (skipn < 0) skipn = 0;
+            skipNum = skipn + 1;
         }
         //PRECONDITION:
         //POSTCONDITION:
-        public override int yield()
-        {
-            yieldCount++;
-            switch (objState)
-            {
-                case State.Stuck:
-                    return thresholdCheck(current);
-                case State.Advance:
-                    for(int i = 0; i < skipNum; i++)
-                    {
-                        current += sequence;
-                    }
-                    return thresholdCheck(current);
-                case State.Retreat:
-                    for (int i = 0; i < skipNum; i++)
-                    {
-                        current -= sequence;
-                    }
-                    return thresholdCheck(current);
-            }
-
-            return -1;
+        public override int yield () {
+            for (int i = 0; i < skipNum-1; i++) {
+                base.yield ();
+            } 
+            return base.yield();
         }
 
+        public override int numGen(){
+            return yieldCount/skipNum;
 
-
+        } 
     }
 }
 /*
@@ -59,5 +41,8 @@ namespace P3
  *                           if skipnum is intialized to a negative number it is intialized to 0
  *                           yield skips sequences iteratively depending on skipNum
  *                           if obj's state is in neither 3 states then it returns -1
- *
+ *                           skipA's yield function skips the base yield function
+ *                           Did not override the reset function because all the data members that it uses belongs to arithS so there is not point. I shouldn't reset the skipNum value because the value is encapsulated via constructor.
+ *                           numgen for skipA will return the number of yields for a skipA obj more accurately
+ *                           
  */
