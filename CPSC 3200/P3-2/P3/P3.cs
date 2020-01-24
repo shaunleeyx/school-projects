@@ -19,16 +19,7 @@ namespace P3
             // arithS[] arr = new arithS[SIZE];
             // arr = arithSarrGen();
             // arithSTest(arr);
-            int[] set = new int[]{};
-            skipA obj = new skipA(3,set,0,3); 
-            obj.switchAdvance();
-            Console.WriteLine(obj.yield());
-            Console.WriteLine(obj.yield());
-            Console.WriteLine(obj.yield());
-            Console.WriteLine(obj.yield());
-            Console.WriteLine(obj.numGen());
-            obj.reset();
-            Console.WriteLine(obj.numGen());
+             
         }
     }
 }

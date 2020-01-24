@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{C5CE4F6F-F5DC-4AC6-9D47-60626656D4D8}|Default">
+  <MonoDevelop.Ide.ItemProperties.P3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="P3/P6.cs">
+    <Files>
+      <File FileName="P3/P6.cs" Line="107" Column="65" />
+      <File FileName="P3/compundC.cs" Line="10" Column="29" />
+      <File FileName="P3/excessC.cs" Line="25" Column="19" />
+      <File FileName="P3/ipwdCheck.cs" Line="5" Column="32" />
+      <File FileName="P3/iFlip.cs" Line="5" Column="32" />
+      <File FileName="P3/Flip.cs" Line="10" Column="57" />
+      <File FileName="P3/iexcessC.cs" Line="5" Column="32" />
+      <File FileName="P3/icompundC.cs" Line="5" Column="32" />
+      <File FileName="P3/FlippwdCheck.cs" Line="13" Column="79" />
+      <File FileName="P3/pwdCheck.cs" Line="69" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P3" expanded="True">
+            <Node name="P3" expanded="True">
+              <Node name="P6.cs" selected="True" />
+            </Node>
+          </Node>
+          <Node name="P6" expanded="True">
+            <Node name="P6" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

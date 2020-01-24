@@ -4,3 +4,7 @@
 /Users/shaunlee/Projects/P2/P2/obj/x86/Debug/P2.exe
 /Users/shaunlee/Projects/P2/P2/obj/x86/Debug/P2.pdb
 /Users/shaunlee/Projects/P2/P2/obj/x86/Debug/P2.csprojAssemblyReference.cache
+/Users/shaunlee/Documents/GitHub/school-projects/CPSC 3200/P2/P2/bin/Debug/P2.pdb
+/Users/shaunlee/Documents/GitHub/school-projects/CPSC 3200/P2/P2/obj/x86/Debug/P2.csprojAssemblyReference.cache
+/Users/shaunlee/Documents/GitHub/school-projects/CPSC 3200/P2/P2/obj/x86/Debug/P2.exe
+/Users/shaunlee/Documents/GitHub/school-projects/CPSC 3200/P2/P2/obj/x86/Debug/P2.pdb

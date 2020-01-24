@@ -18,11 +18,12 @@
  *                                   if intdiv object is perminactive then test() will return -2 
  *                                   operator +,-,+=,-= for mixed modes and intDiv objs can have negatives
  * 
- *            Implementation invariant:     renamed reset() to revive()
- *            (with assumptions)                removed getPerm()
+ *            Implementation invariant:                    renamed reset() to revive()
+ *            (with assumptions)                           removed getPerm()
  *                                                         change the argument of the constructor to a uint
  *                                                         renamed field perm to perminactive
  *                                                         made a if statement in the revive function that if perminactive is active then it just returns
+ *                                                         made div a uint
  *                                                         reset() resets the program to its default state even if its permanently deactivated
  *                                                         revive() resets the program to its default state if its inactive and is permanently deactivated when used while its active
  *                                                        changed line 66 from active = true to active = !active;

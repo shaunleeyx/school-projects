@@ -1,129 +1,117 @@
-﻿/* Author:Shaun Lee
- * April 30,019
- * Version 1
- * Class Overview:Test out the functions of a simulated multi inheritance using interfaces
- * 
- * Functions: FlipTest();
-              pwdCheckRequestTest();
-              FlippwdCheckGen();
-              compundCRequestTest();
- * 
- * //Class Implementation: It is the client's responsibility to get desired results due to randomness in this testing
-
+﻿using System;
+/* Author:Shaun Lee
+ * Driver Overview:Tests out the mangler classes and arithMangler class
+ *
  */
-using System;
-using System.Linq;
+namespace P6 {
+    class MainClass {
 
-class P6
-{
+        static Random random = new Random ();
 
-    public static void Main(string[] args)
-    {
-        FlipTest();
-        pwdCheckRequestTest();
-        compundCRequestTest();
-        excessCFunctionTest();
-    }
+        public static void Main (string[] args) {
+            Test ();
+        }
 
-    //PRE:NONE
-    //POST:FlippwdCheck array is returned with random strings and randomly set p value
+        public static void Test () {
+            const int SIZE = 5;
+            const int SIZE1 = 15;
+            arithSMangler[] arithManglerArr = new arithSMangler[SIZE];
+            mangler[] manglerArr = new mangler[SIZE1];
+            Console.WriteLine("\n --- Test for mangler,puzzler,and amplifier ---\n");
+            for (int i = 0; i < SIZE1; i++) {
+                if (i % 3 == 0) {
+                    manglerArr[i] = manglerGen ();
+                    manglerTest (manglerArr[i]);
+                } else if (i % 3 == 1) {
+                    manglerArr[i] = puzzleGen ();
+                    manglerTest (manglerArr[i]);
+                } else {
+                    manglerArr[i] = amplifierGen ();
+                    manglerTest (manglerArr[i]);
+                } 
+            }
 
-    private static FlippwdCheck[] FlippwdCheckGen()
-    {
-        const int RANDLOW = 2;
-        const int RANDHIGH = 10;
-        const int SIZE = 10;
-        const int STRSIZE = 12;
-        Random rand = new Random();
-        int pvalue;
-        string randomstr;
-        FlippwdCheck[] array = new FlippwdCheck[SIZE];
-        for (int i = 0; i < SIZE; i++)
-        {
-            randomstr = RandomString(STRSIZE);
-            pvalue = rand.Next(RANDLOW, RANDHIGH);
-            Console.WriteLine(i + ":pvalue:" + pvalue + "\tpassword:" + randomstr);
-            array[i] = new FlippwdCheck(rand.Next(RANDLOW,RANDHIGH));
-            array[i].changepw(randomstr);
+
+            Console.WriteLine(" --- Test for arithMangler ---\n");
+            for (int i = 0; i < SIZE; i++) {
+                arithManglerArr[i] = arithManglerGen();
+                arithManglerTest(arithManglerArr[i]);
+
+            }
 
         }
-        Console.WriteLine();
-        return array;
-    }
-
-    //PRE:NONE
-    //POST:Prints out result of FlipTest()
-
-    public static void FlipTest()
-    {
-        Console.WriteLine("\n\t----- FlipTest() -----");
-        const int SIZE = 10;
-        const int LOW = 1;
-        const int MAX = 12;
-        Random rand = new Random();
-        int randint;
-        FlippwdCheck[] arr = FlippwdCheckGen();
-        for (int i = 0; i < SIZE; i++)
-        {
-            randint = rand.Next(LOW,MAX);
-            Console.WriteLine(i + ": FlipNum:" + randint + "\tFlipString:" + arr[i].flipFunc(randint));
+        
+        public static void manglerTest (mangler obj) {
+            int bValue = random.Next (0, 50);
+            Console.WriteLine(" b:" + bValue);
+            Console.WriteLine ("request test:" + obj.request (bValue) + "\n");
         }
-    }
-
-    //PRE:NONE
-    //POST:Prints out result of pwdCheckRequestTest()
-
-    public static void pwdCheckRequestTest()
-    {
-        Console.WriteLine("\n\t----- pwdCheckRequestTest() -----");
-        const int SIZE = 10;
-        FlippwdCheck[] arr = FlippwdCheckGen();
-        for (int i = 0; i < SIZE; i++)
+        public static void arithManglerTest (arithSMangler obj) 
         {
-            Console.WriteLine(i + ":" + arr[i].pwdCheckrequest());
+            int bValue = random.Next (0, 50);
+           int cValue = random.Next(1,10);
+            Console.Write("changed clear to " + cValue + "\n");
+            int skipValue = random.Next(1,10);
+            Console.Write("changed skipvalue to" + skipValue + "\n"); 
+            int num1 = random.Next(0,100);
+            int num2 = random.Next(0,100);
+            int num3 = random.Next(0,100);
+            int[] arr = new int[]{num1,num2,num3};
+            Console.WriteLine("fset:" + num1 + "," + num2 + "," + num3);
+            obj.changeFset(arr);
+           bValue = random.Next (0, 50);
+            Console.Write(" b:" + bValue);
+           Console.Write(" yield:" + obj.yield());
+           Console.WriteLine(" request:" + obj.request(bValue));
+           bValue = random.Next (0, 50);
+            Console.Write(" b:" + bValue);
+           Console.Write(" yield:" + obj.yield());
+           Console.WriteLine(" request:" + obj.request(bValue));
+           bValue = random.Next (0, 50);
+            Console.Write(" b:" + bValue);
+           Console.Write(" yield:" + obj.yield());
+           Console.WriteLine(" request:" + obj.request(bValue) + "\n");
+
+
         }
-    }
-
-    //PRE:NONE
-    //POST:Prints out result of compundCRequestTest()
-
-    public static void compundCRequestTest()
-    {
-        Console.WriteLine("\n\t----- compundCRequestTest -----");
-        Console.WriteLine("\nDEFAULT K VALUE IS 2\n");
-        const int SIZE = 10;
-        FlippwdCheck[] arr = FlippwdCheckGen();
-        for (int i = 0; i < SIZE; i++)
-        {
-            Console.WriteLine(i + ":" + arr[i].compundCrequest());
+        public static puzzler puzzleGen () {
+            int xValue = random.Next (0, 50);
+            int cValue = random.Next (0, 50);
+            Console.Write("Puzzler\tx:" + xValue + " c:" + cValue);
+            puzzler obj = new puzzler (xValue, cValue);
+            return obj;
         }
-    }
-
-    //PRE:NONE
-    //POST:Prints out result of excessCFunctionTest()
-
-    public static void excessCFunctionTest()
-    {
-        Console.WriteLine("\t----- excessCRequestTest() -----");
-        Console.WriteLine("\n REQUIREMENTS: pth char has to be a digit,upper and lower case, and has a '$'\n");
-
-        const int SIZE = 10;
-        FlippwdCheck[] arr = FlippwdCheckGen();
-        for (int i = 0; i < SIZE; i++)
-        {
-            Console.WriteLine(i + ":" + arr[i].excessCrequest());
+        public static mangler manglerGen () {
+            int xValue = random.Next (0, 50);
+            Console.Write("Mangler\tx:" + xValue);
+            mangler obj = new mangler (xValue);
+            return obj;
         }
-    }
+        public static amplifier amplifierGen () {
+            int xValue = random.Next (0, 50);
+            Console.Write("Amplifier x:" + xValue);
+            amplifier obj = new amplifier (xValue);
+            return obj;
+        }
+        public static arithSMangler arithManglerGen () {
+            int arithNum = random.Next (0, 2);
+            int manglerNum = random.Next (0, 2);
+            int diffValue = random.Next (1, 10);
+            int tholdValue = random.Next (1, 10);
+            int xValue = random.Next (0, 50);
+            String arithStr;
+            String manglerStr;
+            if(arithNum == 0) arithStr = "arithS";
+            else if(arithNum == 1) arithStr = "oscillateA";
+            else arithStr = "SkipA";
+            if(manglerNum == 0) manglerStr = "mangler";
+            else if(manglerNum == 1) manglerStr = "amplifier";
+            else manglerStr = "puzzler";
+            Console.WriteLine("arithType:" + arithStr + " manglerType:" + manglerStr + " diff:" + diffValue + " thold:" + tholdValue + " x:" + xValue + " c: 1 skipnum: 1 fset:{}");
+            arithSMangler obj = new arithSMangler (arithNum, manglerNum, diffValue, tholdValue, xValue);
+            obj.switchAdvance();
+            return obj;
+        }
 
-    //PRE:input an integer
-    //POST:returns a random string with possiblity of the chars in the chars string with the length of the integer in the param
-
-    public static string RandomString(int length)
-    {
-        const string chars = "♠♣♥♦abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$";
-        return new string(Enumerable.Repeat(chars, length)
-          .Select(s => s[random.Next(s.Length)]).ToArray());
     }
-    private static Random random = new Random();
 }
-

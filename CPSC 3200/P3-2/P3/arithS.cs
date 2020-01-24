@@ -45,7 +45,7 @@ namespace P3
         //POSTCONDITION:sequence = 1st arg, forbidden = 2nd arg
         public arithS(int difference,int[] fset, int thold)
         {
-            if( difference< 0)  difference= 0;
+            if( difference < 0)  difference= 0;
             current = 0; 
             threshold = thold-1; 
             forbidden = fset;

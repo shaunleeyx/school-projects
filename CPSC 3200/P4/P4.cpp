@@ -341,8 +341,5 @@ void rangeDivTest()
 
 int main()
 {
-    srand(time(NULL));
-    intDivTest();
-    rangeDivTest();
-    return 0;
+   
 }

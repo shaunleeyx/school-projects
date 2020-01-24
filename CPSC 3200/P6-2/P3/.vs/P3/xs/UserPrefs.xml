@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{C5CE4F6F-F5DC-4AC6-9D47-60626656D4D8}|Default">
+  <MonoDevelop.Ide.ItemProperties.P3 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="excessC.cs">
+    <Files>
+      <File FileName="pwdCheck.cs" Line="21" Column="26" />
+      <File FileName="excessC.cs" Line="17" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P3" expanded="True">
+            <Node name="P3" expanded="True">
+              <Node name="excessC.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,16 +1,17 @@
-﻿<Properties StartupConfiguration="{C5CE4F6F-F5DC-4AC6-9D47-60626656D4D8}|Default">
+﻿<Properties StartupConfiguration="{73D4D555-3B8D-4913-99A9-29E6ED291E5F}|Default">
   <MonoDevelop.Ide.ItemProperties.P3 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="excessC.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="arithS.cs">
     <Files>
-      <File FileName="pwdCheck.cs" Line="21" Column="26" />
-      <File FileName="excessC.cs" Line="17" Column="1" />
+      <File FileName="oscillateA.cs" Line="68" Column="1" />
+      <File FileName="arithS.cs" Line="183" Column="1" />
+      <File FileName="arithS.cs" Line="183" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="P3" expanded="True">
             <Node name="P3" expanded="True">
-              <Node name="excessC.cs" selected="True" />
+              <Node name="arithS.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -18,7 +19,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

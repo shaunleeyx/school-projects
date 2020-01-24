@@ -1,0 +1,9 @@
+/Users/shaunlee/Projects/P3/P3/bin/Debug/P3.exe
+/Users/shaunlee/Projects/P3/P3/bin/Debug/P3.pdb
+/Users/shaunlee/Projects/P3/P3/obj/Debug/P3.exe
+/Users/shaunlee/Projects/P3/P3/obj/Debug/P3.pdb
+/Users/shaunlee/Projects/P3/P3/obj/Debug/P3.csprojAssemblyReference.cache
+c:\Users\shaun\OneDrive\Desktop\Github\CPSC 3200\P6\P3\bin\Debug\P3.pdb
+c:\Users\shaun\OneDrive\Desktop\Github\CPSC 3200\P6\P3\obj\Debug\P3.csprojResolveAssemblyReference.cache
+c:\Users\shaun\OneDrive\Desktop\Github\CPSC 3200\P6\P3\obj\Debug\P3.exe
+c:\Users\shaun\OneDrive\Desktop\Github\CPSC 3200\P6\P3\obj\Debug\P3.pdb

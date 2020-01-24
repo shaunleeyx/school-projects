@@ -8,7 +8,7 @@ namespace Project1
 {
 	public class intDiv
 	{
-		private uint div;
+		private readonly uint div;
 		private bool active;
         private bool perm;
         private int lastnum;

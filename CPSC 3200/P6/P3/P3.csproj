@@ -2,14 +2,14 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{C5CE4F6F-F5DC-4AC6-9D47-60626656D4D8}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{73D4D555-3B8D-4913-99A9-29E6ED291E5F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>P3</RootNamespace>
     <AssemblyName>P3</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -18,31 +18,23 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ExternalConsole>true</ExternalConsole>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ExternalConsole>true</ExternalConsole>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P6.cs" />
+    <Compile Include="P3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="compundC.cs" />
-    <Compile Include="excessC.cs" />
-    <Compile Include="pwdCheck.cs" />
-    <Compile Include="Flip.cs" />
-    <Compile Include="ipwdCheck.cs" />
-    <Compile Include="iFlip.cs" />
-    <Compile Include="FlippwdCheck.cs" />
-    <Compile Include="iexcessC.cs" />
-    <Compile Include="icompundC.cs" />
+    <Compile Include="arithS.cs" />
+    <Compile Include="oscillateA.cs" />
+    <Compile Include="skipA.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
