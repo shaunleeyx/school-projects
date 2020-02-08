@@ -1,2 +1,5 @@
+ge(int(N)):
+        bigMatrix.append(A[col]+B[col])
 
-def Strassen(A,B):
+    for col in range(int(N)):
+        bigMatrix.app
