@@ -208,12 +208,25 @@ class Person():
             return self.upFamily(mom,n-1) + self.upFamily(dad,n-1)
 
             
-    # def downFamily(self,fObj,n):
+    def downFamily(self,pObj,n):
+            if n == 0:
+                print(pObj.name())            
+            if len(pObj._asSpouse) == 0:
+                pass  
+            else:
+                f = families[pObj._asSpouse]
+                for kid in f._children:
+                    self.downFamily(kid,n-1)
+                
+
 
     def printCousins(self,n):
         nGenFam = set(self.upFamily(self,n))
         for item in nGenFam:
-            print(families[item]._children)
+            for kid in families[item]._children: 
+                kPerson = persons[kid]
+                print(kPerson)
+                self.downFamily(self,kPerson,n)
 
 
 # end of class person
