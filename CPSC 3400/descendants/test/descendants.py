@@ -31,14 +31,12 @@ Print pedigree chart
 
 
 # -----------------------------------------------------------------------
-import GEDtest
-#stores info about events
 class Event(): 
 
     def __init__(self):
-            self._birth = "b: "
-            self._death = "d: "
-            self._marriage = "m: "
+            self._birth = "n"
+            self._death = "d "
+            self._marriage = ""
             self._divorce = None
             self._records = "" 
             self._gender = ""
@@ -67,10 +65,14 @@ class Event():
 
     def addEdu(self,ed = ""):
         self._edu = ed
+
+
+
 class Person():
     # Stores info about a single person
     # Created when an Individual (INDI) GEDCOM record is processed.
     # -------------------------------------------------------------------
+
     def __init__(self, ref):
         # Initializes a new Person object, storing the string (ref) by
         # which it can be referenced.
@@ -79,17 +81,8 @@ class Person():
         self._asChild = None
         self.eventObj = Event()
 
-    def addBirth(self,date = ''):
-        self.eventObj._birth
-    
-    def addDeath(self,date = ''):
-        self.eventObj._death = date
-    
     def addGender(self,gen =''):
         self.eventObj._gender = gen
-
-    def addRecords(self,note =''):
-        self.eventObj._records.append(note)
 
     def addName(self, names):
         # Extracts name parts from a list of name and stores them
@@ -109,7 +102,7 @@ class Person():
 
     def printDescendants(self, prefix=''):
         # print info for this person and then call method in Family
-        print(prefix + self.name() + self.eventObj._birth + " " + self.eventObj._death)
+        print(prefix + self.name())
         # recursion stops when self is not a spouse
         for fam in self._asSpouse:
             families[fam].printFamily(self._id, prefix)
@@ -126,7 +119,7 @@ class Person():
         else:
             childString = ''
         if self._asSpouse != []:  # make sure _asSpouse list is not empty
-            # spouseString = ' asSpouse: ' + str(self._asSpouse)
+            #spouseString = ' asSpouse: ' + str(self._asSpouse)
             spouseString = ' | asSpouse: ' + ','.join(self._asSpouse)
         else:
             spouseString = ''
@@ -134,95 +127,14 @@ class Person():
             + ' ' + self._suffix \
             + childString + spouseString
 
-    def isDescendantHelper(self, pObj, target=""):
-        if pObj._id == target:
-            return True
-        elif target == "":
-            return False
-        elif len(pObj._asSpouse) > 0:
-            for famID in pObj._asSpouse:
-                for child in families[famID]._children:
-                    p = persons[child]
-                    if pObj.isDescendantHelper(p, target) == True:
-                        return True
-        return False
-
-    def isDescendant(self, target=""):
-        p = persons[self._id]
-        if self.isDescendantHelper(p, target):
-            return True
-        return False
-
-    def parentFamID(self):
-        for item in families.items():
-            if item[1]._husband == self._id or item[1]._wife == self._id:
-                return item[0]
-        for item in families.items():
-            for kid in item[1]._children:
-                if kid == self._id:
-                    return item[0]
-
-    def getFamilyId(self, str):
-        for item in families.items():
-            for x in item[1]._children:
-                if x == str:
-                    return item[0]
-
-# function gets the family root of person object
-    def getRoot(self):
-        child = self._id
-        while True:
-            f = families[self.getFamilyId(child)]
-            if f._husband != None:
-                parent = f._husband
-            elif f._wife != None:
-                parent = f._wife
-            if self.getFamilyId(parent) == None:
-                return self.getFamilyId(child)
-            child = parent
-        f = families[self.getRoot()]
-
-    #helps printAncestors()
-    def printAncestorsHelper(self, pObj, string,count = 0):
-        if pObj._asChild == None:
-            print(string,count,pObj.name())
-        else: 
-            f = families[pObj._asChild]
-            dad =persons[f._husband]
-            mom =persons[f._wife]
-            self.printAncestorsHelper(dad,string= string + " ",count= count + 1)
-            self.printAncestorsHelper(mom,string= string + " ",count= count + 1)
-            print(string,count,pObj.name())
-        
-    def printAncestors(self, string):
-        self.printAncestorsHelper(self, string)
-
-
-    def upFamily(self,pObj,n):
-        if(n == 0):
-            return pObj._asSpouse
-        else: 
-            f= families[pObj._asChild]
-            mom = persons[f._wife]
-            dad = persons[f._husband]
-            return self.upFamily(mom,n-1) + self.upFamily(dad,n-1)
-
-            
-    # def downFamily(self,fObj,n):
-
-    def printCousins(self,n):
-        nGenFam = set(self.upFamily(self,n))
-        for item in nGenFam:
-            print(families[item]._children)
-
-
-# end of class person
+# end of class Person
 
 # -----------------------------------------------------------------------
 
-class family():
-    # stores info about a family
-    # created when an family (fam) gedcom record is processed.
+
+class Family():
+    # Stores info about a family
+    # Created when an Family (FAM) GEDCOM record is processed.
     # -------------------------------------------------------------------
 
     def __init__(self, ref):
@@ -231,9 +143,8 @@ class family():
         self._id = ref
         self._husband = None
         self._wife = None
-        self._children = [] 
+        self._children = []
         self.eventObj = Event()
-    
 
     def addHusband(self, personRef):
         # Stores the string (personRef) indicating the husband in this family
@@ -247,15 +158,6 @@ class family():
         # Adds the string (personRef) indicating a new child to the list
         self._children += [personRef]
 
-    def getWife(self):
-        return self._wife
-
-    def getHusband(self):
-        return self._husband
-
-    def getChildren(self):
-        return self._children
-
     def printFamily(self, firstSpouse, prefix):
         # Used by printDecendants in Person to print spouse
         # and recursively involve printDescendants on children
@@ -263,10 +165,10 @@ class family():
             prefix = prefix[:-2]+'  '
         if self._husband == firstSpouse:
             if self._wife:  # make sure value is not None
-                print(prefix + '+' + persons[self._wife].name() + persons[self._wife].eventObj._birth  + " " +  persons[self._wife].eventObj._death + " " + self.eventObj._marriage)
+                print(prefix + '+' + persons[self._wife].name() + persons[self._wife].eventObj._birth  + " " +  persons[self._wife].eventObj._death)
         else:
             if self._husband:  # make sure value is not None
-                print(prefix + '+' + persons[self._husband].name() + persons[self._husband].eventObj._birth  + " " +  persons[self._husband].eventObj._death + " " + self.eventObj._marriage) 
+                print(prefix + '+' + persons[self._husband].name() + persons[self._husband].eventObj._birth  + " " +  persons[self._husband].eventObj._death) 
         for child in self._children:
             persons[child].printDescendants(prefix+'|--')
 
@@ -375,13 +277,7 @@ def processGEDCOM(file):
             elif tag == 'CHIL':
                 newFamily.addChild(getPointer(line))
             # add code here to look for other fields
-
-            elif tag == 'DATE':
-                line = line[6:] 
-                newFamily.eventObj.addMarriage(line.strip())
-            elif tag == 'PLAC':
-                    line = line[7:]
-                    newFamily.eventObj.addMarriage(line.strip())
+           
             # read to go to next line
             line = f.readline()
 
@@ -405,7 +301,7 @@ def processGEDCOM(file):
             elif (fields[2] == "FAM"):
                 ref = fields[1].strip('@')
                 # create a new Family and save it in mapping dictionary
-                families[ref] = family(ref)
+                families[ref] = Family(ref)
                 # process remainder of the FAM record
                 processFamily(families[ref])
 
@@ -423,11 +319,11 @@ def runDemo():
     filename = input("Type the name of the GEDCOM file:")
 
     processGEDCOM(filename)
-    print("START")
-    print("END")
+
     # Print out all information stored about individuals
     for ref in sorted(persons.keys()):
         print(ref+':', persons[ref])
+    print()
 
     # Print out all information stored about families
     for ref in sorted(families.keys()):
@@ -440,17 +336,15 @@ def runDemo():
 
     persons[person].printDescendants()
 
-
+import GEDtest
 def _main():
-    processGEDCOM("Kennedy.ged")
-    # GEDtest.runtests(persons,families)
-    p = persons['I54']
-    print("p:",p._id)
-    (p.printCousins(2))
-
-    
-
+     processGEDCOM("Kennedy.ged")
+     GEDtest.runtests(persons, families)
+     p = persons['I54']
+     # print (p._asChild)
+     n = 1
 
 
 if __name__ == '__main__':
     _main()
+
