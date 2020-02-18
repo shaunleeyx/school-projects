@@ -200,7 +200,9 @@ class Person():
 
     def upFamily(self,pObj,n):
         if(n == 0):
-            return pObj._asSpouse
+            return pObj._asSpouse 
+        if pObj._asChild == None:
+            return []
         else: 
             f= families[pObj._asChild]
             mom = persons[f._wife]
@@ -209,24 +211,25 @@ class Person():
 
             
     def downFamily(self,pObj,n):
-            if n == 0:
-                print(pObj.name())            
             if len(pObj._asSpouse) == 0:
                 pass  
+            if n == 0:
+                print(pObj.name())            
             else:
-                f = families[pObj._asSpouse]
-                for kid in f._children:
-                    self.downFamily(kid,n-1)
+                for spouse in pObj._asSpouse: 
+                    f = families[spouse]
+                    for kid in f._children:
+                        self.downFamily(persons[kid],n-1)
                 
 
-
-    def printCousins(self,n):
-        nGenFam = set(self.upFamily(self,n))
+#printCousins might print duplicate names because it has to print from both side of family
+    def printCousins(self,n=1):
+        nGenFam = set(self.upFamily(self,n+1))
         for item in nGenFam:
             for kid in families[item]._children: 
-                kPerson = persons[kid]
-                print(kPerson)
-                self.downFamily(self,kPerson,n)
+                if kid != families[self._asChild]._husband and kid != families[self._asChild]._wife:
+                    kPerson = persons[kid]
+                    self.downFamily(kPerson,n)
 
 
 # end of class person
@@ -341,7 +344,6 @@ def processGEDCOM(file):
                 newPerson.eventObj.addBirth(line.strip())
                 line = f.readline()
                 s = line.split()
-                # print(s)
                 if s[1] == "PLAC":
                     line = line[7:]
                     newPerson.eventObj.addBirth(line.strip())
@@ -405,9 +407,7 @@ def processGEDCOM(file):
     line = f.readline()
     while line != '':  # end loop when file is empty
         fields = line.strip().split(' ')
-        # print(fields)
         if line[0] == '0' and len(fields) > 2:
-            # print(fields)
             if (fields[2] == "INDI"):
                 ref = fields[1].strip('@')
                 # create a new Person and save it in mapping dictionary
@@ -456,10 +456,7 @@ def runDemo():
 
 def _main():
     processGEDCOM("Kennedy.ged")
-    # GEDtest.runtests(persons,families)
-    p = persons['I54']
-    print("p:",p._id)
-    (p.printCousins(2))
+    GEDtest.runtests(persons,families)
 
     
 
