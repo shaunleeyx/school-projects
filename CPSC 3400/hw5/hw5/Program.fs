@@ -1,9 +1,9 @@
-﻿//#1
-let rec sumEven list =
-    match list with
-    | [] -> 0
-    | hd::tl -> if hd % 2 = 0 then hd + sumEven tl else sumEven tl
-
+﻿let sumEven list
+    let rec helper list,fList=
+        match list with
+        | [] -> fList
+        | hd::tl -> if hd % 2 = 0 then sumEven (hd::fList) else sumEven tl
+    helper list,[]
 
 sumEven [1; 2; 1; 2; 1; 2];;
  sumEven [1..10];;
