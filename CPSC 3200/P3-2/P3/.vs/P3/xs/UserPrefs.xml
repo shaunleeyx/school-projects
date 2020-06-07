@@ -1,11 +1,6 @@
 ﻿<Properties StartupConfiguration="{73D4D555-3B8D-4913-99A9-29E6ED291E5F}|Default">
   <MonoDevelop.Ide.ItemProperties.P3 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="arithS.cs">
-    <Files>
-      <File FileName="oscillateA.cs" Line="68" Column="1" />
-      <File FileName="arithS.cs" Line="183" Column="1" />
-      <File FileName="arithS.cs" Line="183" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
